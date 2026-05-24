@@ -145,54 +145,22 @@
     replaceUserName();
   }
 
-  // Narrativ ketma-ketlik — foydalanuvchi safari:
+  // MVP scope (2026-05-24) — faqat 6 ta zarur ekran. Boshqalar /preview/
+  // papkasida qoladi (galereya orqali ko'rinadi) lekin asosiy oqimga kirmaydi.
   //
-  //  [1-5]   KIRISH-TANISHUV + MAQSAD — kim sen, niyating, ruxsatlar
-  //  [6-10]  KUN TARTIBINI TUZISH-TASDIQLASH — AI reja → kechqurun → tongda
-  //  [11]    KUN BOSHLANISHI — vaqt keldi
-  //  [12-14] DARSLAR + TAYMERLAR — onlayn dars, kunlik oqim, pomodoro
-  //  [15-20] CHEKLOVLAR + MENTOR YORDAMI — bloklash, mentor inkor, suhbat, dam
-  //  [21-28] NATIJALAR — sessiya bahosi, dashboard, profil, hafta tahlil, bayram
+  // 1. Tanishuv (welcome)
+  // 2. Maqsadi (goal)
+  // 3. Ruxsatlar (permissions)
+  // 4. Kun tartibini tuzish (routine)
+  // 5. Taymer + ekran qulflanish — hard-lock day-flow ichida state sifatida
+  // 6. Natijalar — 1 kun / 1 hafta / 1 oy (weekly-review)
   const SEQ = [
-    // 1-5 — Kirish-tanishuv + Maqsad
-    'welcome.html',          // 1. "Salom, sen kim?" (ism)
-    'voice-commitment.html', // 2. "Tanishaylik" — mentor o'zini taqdim, sen ovozda javob
-    'goal.html',             // 3. "Niyating?" — yo'nalish tanlash
-    'permissions.html',      // 4. "Ruxsatlar"
-    'done.html',             // 5. "Tayyormiz"
-
-    // 6-10 — Kun tartibini tuzish-tasdiqlash
-    'routine.html',          // 6. "AI bilan rejani quramiz"
-    'tomorrow-plan.html',    // 7. "Kechqurun: ertangi rejani chizamiz"
-    'add-session.html',      // 8. "Qo'lda yangi sessiya qo'shish"
-    'daily-brief.html',      // 9. "Tongda: 3 sokratik savol"
-    'morning-confirm.html',  // 10. "Tonggi tasdiq"
-
-    // 11 — Kun boshlanishi
-    'session-start.html',    // 11. "Murabbiy chaqirmoqda — vaqt keldi"
-
-    // 12-14 — Darslar + Taymerlar
-    'online-class.html',     // 12. "Onlayn dars paytida"
-    'day-flow.html',         // 13. "Kunlik oqim — taymer ishlamoqda"
-    'pomodoro.html',         // 14. "25/5 fokus tsikli"
-
-    // 15-20 — Cheklovlar + Mentor yordami
-    'hard-lock.html',        // 15. "Instagram'ga urinding — bloklandi"
-    'negotiation.html',      // 16. "Mentor sabab so'raydi"
-    'stuck.html',            // 17. "Qisilib qolsang"
-    'urgent-time.html',      // 18. "Shoshilinch ish chiqsa"
-    'chat.html',             // 19. "Mentor bilan ochiq suhbat"
-    'rest-mode.html',        // 20. "Dam rejimi"
-
-    // 21-28 — Natijalar (sessiya yakuni → dashboard → uzoq vaqt → hafta)
-    'session-reflection.html', // 21. "Sessiya tugadi — baho"
-    'home.html',             // 22. "Bosh sahifa — 12-kun streak"
-    'profile.html',          // 23. "Sen — daraxt halqalari"
-    'notifications.html',    // 24. "Bildirishnomalar markazi"
-    'calendar.html',         // 25. "Kalendar — bir oylik tarix"
-    'settings.html',         // 26. "Sozlamalar"
-    'weekly-review.html',    // 27. "Haftalik analitik tahlil"
-    'celebrate.html'         // 28. "Haftalik bayram"
+    'welcome.html',        // 1. Tanishuv — ism + til
+    'goal.html',           // 2. Maqsadingni so'rash
+    'permissions.html',    // 3. Ruxsatlar (texnik kerakli)
+    'routine.html',        // 4. Kun tartibini tuzish — AI bilan
+    'day-flow.html',       // 5. Taymer + nazorat (ish paytida ekran qulflanadi)
+    'weekly-review.html'   // 6. Natijalar — 1 kun / 1 hafta / 1 oy
   ];
 
   const file = (location.pathname.split('/').pop() || 'welcome.html').toLowerCase();

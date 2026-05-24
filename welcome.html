@@ -602,7 +602,7 @@
     if (!localStorage.getItem('mvow.startedAt')) {
       localStorage.setItem('mvow.startedAt', new Date().toISOString());
     }
-    location.href = 'voice-commitment.html';
+    location.href = 'goal.html';
   }
   document.getElementById('userNameInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); saveAndStart(); }
