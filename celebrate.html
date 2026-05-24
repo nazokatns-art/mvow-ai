@@ -135,7 +135,54 @@
   }
   .stats-line .em{color:var(--gold)}
 
-  /* === ODAT ZANJIRI · har variantning pastida === */
+  /* === O'ZGARISH NATIJALARI — avval vs hozir === */
+  .change-result {
+    position:absolute; bottom:260px; left:24px; right:24px;
+    z-index:8; padding:12px 12px;
+    background:linear-gradient(135deg, rgba(74,138,92,.10), rgba(232,199,126,.06));
+    border:1px solid rgba(74,138,92,.4);
+    border-radius:6px;
+    text-align:center;
+  }
+  .change-result .head {
+    font-family:'JetBrains Mono',monospace; font-size:8px;
+    letter-spacing:3px; color:var(--emerald-bright);
+    margin-bottom:8px;
+  }
+  .change-result .big {
+    font-family:'Cinzel',serif; font-weight:700;
+    font-size:34px; color:var(--gold-flash);
+    line-height:1; margin:4px 0;
+    text-shadow:0 0 16px rgba(255,233,181,.45);
+  }
+  .change-result .label {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:13px; color:var(--text-primary);
+    margin-bottom:8px;
+  }
+  .change-result .compare {
+    display:flex; justify-content:space-around; align-items:center;
+    margin-top:8px; padding-top:8px;
+    border-top:1px dashed rgba(232,199,126,.18);
+    font-family:'JetBrains Mono',monospace; font-size:9px;
+    letter-spacing:1px;
+  }
+  .change-result .compare .side {
+    flex:1;
+  }
+  .change-result .compare .side .sub {
+    color:var(--text-muted); font-size:7px; letter-spacing:2px;
+    margin-bottom:3px;
+  }
+  .change-result .compare .side .v {
+    color:var(--text-body); font-size:11px;
+  }
+  .change-result .compare .arrow {
+    color:var(--emerald-bright); font-size:14px; padding:0 6px;
+  }
+  .change-result .compare .side.now .v { color:var(--gold-flash); font-weight:700; }
+
+  /* === ODAT ZANJIRI · pastida === */
   .habit-chain {
     position:absolute; bottom:118px; left:24px; right:24px;
     z-index:8; padding:11px 12px;
@@ -837,6 +884,26 @@
     </div>
   </div>
 
+  <!-- O'zgarish natijalari — yangi sen vs eski sen -->
+  <div class="change-result">
+    <div class="head">SEN — OLDINGI SENDAN</div>
+    <div class="big">+70% O'ZGARDING</div>
+    <div class="label">Bir hafta ichida boshqa odam bo'lyapsan</div>
+    <div class="compare">
+      <div class="side">
+        <div class="sub">AVVAL</div>
+        <div class="v">3 sessiya / kun</div>
+        <div class="v">11 soat fokus</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="side now">
+        <div class="sub">HOZIR</div>
+        <div class="v">5–6 sessiya / kun</div>
+        <div class="v">47 soat fokus</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Odat zanjiri — har variantning pastida ko'rinadi -->
   <div class="habit-chain">
     <div class="head">ODATGA AYLANAYOTGAN ZANJIRLAR</div>
@@ -849,6 +916,14 @@
   </div>
 
 </div>
+
+<script>
+  // Bayramdan keyin — kun tartibini qaytadan tuzishga qaytish
+  document.querySelectorAll('.next-btn').forEach(btn => {
+    btn.textContent = 'KEYINGI HAFTANI TUZAMIZ';
+    btn.addEventListener('click', () => { location.href = 'routine.html'; });
+  });
+</script>
 
 <!-- Variant tabs (preview only) — 8 creative celebrations -->
 <div class="variant-tabs">
