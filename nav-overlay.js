@@ -149,23 +149,23 @@
   // done.html SEQ'dan olib tashlandi — onboarding tugashi sahifasi kerakmas.
   // routine.html 6-pozitsiyada: "Rejalaringni ayt, kun tartibini tuzamiz"
   const SEQ = [
-    // Onboarding (1-5)
+    // Onboarding + reja → ruxsatlar (1-4)
     'welcome.html',           // 1. Tanishuv — ism
     'voice-commitment.html',  // 2. Mentor bilan tanishuv (va'da)
-    'goal.html',              // 3. Maqsadingni so'rash
-    'settings.html',          // 4. Sozlamalar
-    'permissions.html',       // 5. Ruxsatlar
-    // Reja tuzish (6-7)
-    'routine.html',           // 6. "Rejalaringni ayt, kun tartibini tuzamiz" — AI
-    'calendar.html',          // 7. Haftalik kalendar — sariq (kutilmoqda) · yashil (bajarildi) · rangsiz (bajarilmagan)
-    // Ish (8-10)
-    'day-flow.html',          // 8. Taymer + nazorat
-    'hard-lock.html',         // 9. Ekran qulflash
-    'session-reflection.html',// 10. Sessiya bahosi
-    // Bildirishnomalar va natijalar (11-13)
-    'notifications.html',     // 11. Mentor xabarlari · yutuqlar · eslatmalar
-    'weekly-review.html',     // 12. Natijalar — 1 kun / 1 hafta / 1 oy
-    'celebrate.html'          // 13. Haftalik bayram
+    'goal.html',              // 3. Maqsadingni so'rash (reja aytish)
+    'permissions.html',       // 4. Ruxsatlar (rejani amalga oshirish uchun)
+    // Reja tuzish va bajarish (5-9)
+    'routine.html',           // 5. "Rejalaringni ayt, kun tartibini tuzamiz" — AI
+    'calendar.html',          // 6. Haftalik kalendar
+    'day-flow.html',          // 7. Taymer + nazorat
+    'hard-lock.html',         // 8. Ekran qulflash
+    'session-reflection.html',// 9. Sessiya bahosi
+    // Bildirishnomalar va natijalar (10-12)
+    'notifications.html',     // 10. Mentor xabarlari · yutuqlar
+    'weekly-review.html',     // 11. Natijalar — 1 kun / 1 hafta / 1 oy
+    'celebrate.html',         // 12. Haftalik bayram
+    // Sozlamalar — eng oxirga (kerak bo'lganda ochiladi)
+    'settings.html'           // 13. Sozlamalar
   ];
 
   const file = (location.pathname.split('/').pop() || 'welcome.html').toLowerCase();
