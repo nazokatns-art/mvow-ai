@@ -400,10 +400,10 @@
     width:240px; height:200px; z-index:3;
   }
   .v-phoenix .phoenix-svg path {
-    stroke:var(--gold); stroke-width:2; fill:none;
-    stroke-dasharray:500; stroke-dashoffset:500;
-    animation:phoenix-draw 2.5s 1s ease forwards;
-    filter:drop-shadow(0 0 8px var(--gold-flash));
+    stroke:var(--gold); stroke-width:1.5; fill:rgba(232,199,126,.08);
+    stroke-dasharray:400; stroke-dashoffset:400;
+    animation:phoenix-draw 2s 0.6s ease forwards;
+    filter:drop-shadow(0 0 10px var(--gold-flash));
   }
   @keyframes phoenix-draw{to{stroke-dashoffset:0}}
 
@@ -813,16 +813,18 @@
     <span class="ember" style="left:85%;animation-delay:3s"></span>
 
     <svg class="phoenix-svg" viewBox="0 0 240 200">
-      <!-- Stylized phoenix wings -->
-      <path d="M 120 180
-               Q 60 140, 30 80
-               Q 50 60, 90 70
-               Q 110 50, 120 30
-               Q 130 50, 150 70
-               Q 190 60, 210 80
-               Q 180 140, 120 180 Z" />
-      <!-- Tail feathers -->
-      <path d="M 120 180 Q 110 170, 100 175 M 120 180 Q 130 170, 140 175 M 120 180 Q 120 195, 120 200" />
+      <!-- Yondiruvchi olov tillari — qayta tug'ilish ramzi (gul emas) -->
+      <!-- Markaziy eng baland til -->
+      <path d="M 120 195 L 115 130 L 110 100 L 120 30 L 130 100 L 125 130 Z" />
+      <!-- Chap til -->
+      <path d="M 90 195 L 88 150 L 82 125 L 88 80 L 96 125 L 92 150 Z" />
+      <!-- O'ng til -->
+      <path d="M 150 195 L 152 150 L 158 125 L 152 80 L 144 125 L 148 150 Z" />
+      <!-- Tashqi kichik tillar -->
+      <path d="M 60 195 L 58 165 L 55 145 L 60 115 L 66 145 L 64 165 Z" />
+      <path d="M 180 195 L 182 165 L 185 145 L 180 115 L 174 145 L 176 165 Z" />
+      <!-- Pastdagi baza chizig'i -->
+      <path d="M 35 197 L 205 197" stroke-linecap="round" />
     </svg>
 
     <div class="headline">
