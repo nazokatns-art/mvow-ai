@@ -164,10 +164,38 @@
     line-height: 1;
   }
 
+  /* === Period tabs (KUN/HAFTA/OY) === */
+  .period-tabs {
+    position: absolute;
+    top: 50px; left: 24px; right: 24px;
+    display: flex; gap: 4px;
+    z-index: 5;
+    background: rgba(232,199,126,0.04);
+    border: 1px solid var(--gold-deep);
+    border-radius: 999px;
+    padding: 3px;
+  }
+  .ptab {
+    flex: 1;
+    background: transparent; border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; letter-spacing: 2px;
+    color: var(--gold-deep);
+    padding: 7px 0; border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .ptab:hover { color: var(--gold); }
+  .ptab.active {
+    background: linear-gradient(180deg, var(--gold-flash) 0%, var(--gold) 50%, var(--gold-2) 100%);
+    color: var(--void); font-weight: 700;
+    box-shadow: 0 0 12px rgba(232,199,126,0.4);
+  }
+
   /* === Title (greeting) === */
   .title-block {
     position: absolute;
-    top: 70px; left: 24px; right: 24px;
+    top: 96px; left: 24px; right: 24px;
     z-index: 4;
   }
   .title-block .label {
@@ -568,28 +596,35 @@
 
     <!-- Header -->
     <div class="header-row">
-      <div class="week-stamp">
+      <div class="week-stamp" id="periodStamp">
         <span class="star">✦</span>
-        <span>HAFTA · 19 (4 — 10 MAY)</span>
+        <span id="periodLabel">HAFTA · 19 (4 — 10 MAY)</span>
       </div>
       <div class="close-btn">×</div>
+    </div>
+
+    <!-- Period tabs: KUN / HAFTA / OY -->
+    <div class="period-tabs" id="periodTabs">
+      <button class="ptab" data-period="day">1 KUN</button>
+      <button class="ptab active" data-period="week">1 HAFTA</button>
+      <button class="ptab" data-period="month">1 OY</button>
     </div>
 
     <!-- Title -->
     <div class="title-block">
       <div class="label">DO'STING — MURABBIY</div>
-      <div class="title">Aziz, qara <span class="em">nima qilding</span> bu hafta.</div>
+      <div class="title" id="titleText">Aziz, qara <span class="em">nima qilding</span> bu hafta.</div>
     </div>
 
     <!-- Hero stat -->
     <div class="hero-stat">
-      <div class="lbl">JAMI FOKUS · BU HAFTA</div>
+      <div class="lbl" id="heroLbl">JAMI FOKUS · BU HAFTA</div>
       <div class="val">
         <span id="heroVal">0</span>
-        <span class="unit">SOAT</span>
-        <span class="delta">↑ +12% o'tgan hafta</span>
+        <span class="unit" id="heroUnit">SOAT</span>
+        <span class="delta" id="heroDelta">↑ +12% o'tgan hafta</span>
       </div>
-      <div class="sub">Bu — <span class="em">38 sessiya</span>. Hech qachon shuncha qilmagansan.</div>
+      <div class="sub" id="heroSub">Bu — <span class="em">38 sessiya</span>. Hech qachon shuncha qilmagansan.</div>
     </div>
 
     <!-- Day chart -->
@@ -697,14 +732,110 @@
 </div>
 
 <script>
-  // Animate hero number count up
-  const heroVal = document.getElementById('heroVal');
-  let n = 0; const target = 47;
-  const stepN = setInterval(() => {
-    n += 1;
-    heroVal.textContent = n;
-    if (n >= target) clearInterval(stepN);
-  }, 36);
+  // === Period data ===
+  // KUN — har kechqurun. HAFTA — 7 kundan keyin. OY — 30 kundan keyin.
+  const PERIODS = {
+    day: {
+      stamp: 'BUGUN · 10 MAY · YAKSHANBA',
+      title: 'Aziz, qara <span class="em">nima qilding</span> bugun.',
+      heroLbl: 'BUGUNGI FOKUS',
+      heroVal: 5.75,
+      heroUnit: 'SOAT',
+      heroDelta: '↑ +30 daq kechagidan',
+      heroSub: 'Bu — <span class="em">5 sessiya</span>. Bomdod, Arab grammatikasi, SMM, Loyiha, Kitob.',
+      bars: [
+        { day: '04-06', val: 2.0, best: false },
+        { day: '06-07', val: 1.0, best: false },
+        { day: '10-12', val: 2.0, best: true  },
+        { day: '13-14', val: 1.5, best: false },
+        { day: '15-16', val: 0.75, best: false }
+      ]
+    },
+    week: {
+      stamp: 'HAFTA · 19 (4 — 10 MAY)',
+      title: 'Aziz, qara <span class="em">nima qilding</span> bu hafta.',
+      heroLbl: 'JAMI FOKUS · BU HAFTA',
+      heroVal: 47,
+      heroUnit: 'SOAT',
+      heroDelta: '↑ +12% o\'tgan hafta',
+      heroSub: 'Bu — <span class="em">38 sessiya</span>. Hech qachon shuncha qilmagansan.',
+      bars: [
+        { day: 'DU', val: 5.5, best: false },
+        { day: 'SE', val: 7.2, best: false },
+        { day: 'CH', val: 6.0, best: false },
+        { day: 'PA', val: 8.3, best: true  },
+        { day: 'JU', val: 7.0, best: false },
+        { day: 'SH', val: 2.0, best: false },
+        { day: 'YA', val: 3.5, best: false }
+      ]
+    },
+    month: {
+      stamp: 'MAY · 2026',
+      title: 'Aziz, qara <span class="em">nima qilding</span> bu oy.',
+      heroLbl: 'JAMI FOKUS · BU OY',
+      heroVal: 188,
+      heroUnit: 'SOAT',
+      heroDelta: '↑ +25% o\'tgan oy',
+      heroSub: 'Bu — <span class="em">152 sessiya · 4 hafta</span>. Streak uzilmaganda.',
+      bars: [
+        { day: 'H 16', val: 38, best: false },
+        { day: 'H 17', val: 42, best: false },
+        { day: 'H 18', val: 47, best: false },
+        { day: 'H 19', val: 47, best: false },
+        { day: 'H 20', val: 14, best: false }
+      ]
+    }
+  };
+
+  // Hero counter animation
+  let currentTarget = PERIODS.week.heroVal;
+  let counterTimer = null;
+  function animateHero(target) {
+    if (counterTimer) clearInterval(counterTimer);
+    const el = document.getElementById('heroVal');
+    let n = 0;
+    const step = Math.max(1, Math.ceil(target / 50));
+    counterTimer = setInterval(() => {
+      n += step;
+      if (n >= target) { n = target; clearInterval(counterTimer); }
+      el.textContent = (target % 1 === 0) ? n : n.toFixed(1);
+    }, 30);
+  }
+
+  // Render bars
+  function renderBars(bars) {
+    const container = document.querySelector('.day-chart .bars');
+    if (!container) return;
+    const maxVal = Math.max(...bars.map(b => b.val));
+    container.innerHTML = bars.map((b, i) => `
+      <div class="bar-col${b.best ? ' best' : ''}">
+        <div class="bar-val">${b.val}</div>
+        <div class="bar-wrap"><div class="bar" style="height:${(b.val/maxVal)*92}%;animation-delay:${0.1+i*0.1}s"></div></div>
+        <div class="bar-day">${b.day}</div>
+      </div>`).join('');
+  }
+
+  // Switch period
+  function switchPeriod(key) {
+    const p = PERIODS[key];
+    if (!p) return;
+    document.getElementById('periodLabel').innerHTML = p.stamp;
+    document.getElementById('titleText').innerHTML = p.title;
+    document.getElementById('heroLbl').textContent = p.heroLbl;
+    document.getElementById('heroUnit').textContent = p.heroUnit;
+    document.getElementById('heroDelta').innerHTML = p.heroDelta;
+    document.getElementById('heroSub').innerHTML = p.heroSub;
+    renderBars(p.bars);
+    animateHero(p.heroVal);
+    document.querySelectorAll('.ptab').forEach(t => t.classList.toggle('active', t.dataset.period === key));
+  }
+
+  document.querySelectorAll('.ptab').forEach(t => {
+    t.addEventListener('click', () => switchPeriod(t.dataset.period));
+  });
+
+  // Default — week view
+  switchPeriod('week');
 
   // Spawn confetti
   function spawnConfetti() {
