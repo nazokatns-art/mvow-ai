@@ -145,27 +145,27 @@
     replaceUserName();
   }
 
-  // MVP scope (2026-05-24, qayta) — 12 ta zarur ekran.
-  // done.html SEQ'dan olib tashlandi — onboarding tugashi sahifasi kerakmas.
-  // routine.html 6-pozitsiyada: "Rejalaringni ayt, kun tartibini tuzamiz"
+  // MVP scope (2026-05-24, qayta) — 14 ta zarur ekran.
+  // today-plan.html qo'shildi: AI tuzgan kun tartibi ro'yxati — boshlashdan oldin.
   const SEQ = [
     // Onboarding + reja → ruxsatlar (1-4)
     'welcome.html',           // 1. Tanishuv — ism
     'voice-commitment.html',  // 2. Mentor bilan tanishuv (va'da)
     'goal.html',              // 3. Maqsadingni so'rash (reja aytish)
     'permissions.html',       // 4. Ruxsatlar (rejani amalga oshirish uchun)
-    // Reja tuzish va bajarish (5-9)
+    // Reja tuzish — ko'rish — bajarish (5-10)
     'routine.html',           // 5. "Rejalaringni ayt, kun tartibini tuzamiz" — AI
     'calendar.html',          // 6. Haftalik kalendar
-    'day-flow.html',          // 7. Taymer + nazorat
-    'hard-lock.html',         // 8. Ekran qulflash
-    'session-reflection.html',// 9. Sessiya bahosi
-    // Bildirishnomalar va natijalar (10-12)
-    'notifications.html',     // 10. Mentor xabarlari · yutuqlar
-    'weekly-review.html',     // 11. Natijalar — 1 kun / 1 hafta / 1 oy
-    'celebrate.html',         // 12. Haftalik bayram
+    'today-plan.html',        // 7. Bugungi tayyor kun tartibi ro'yxati
+    'day-flow.html',          // 8. Taymer + nazorat
+    'hard-lock.html',         // 9. Ekran qulflash
+    'session-reflection.html',// 10. Sessiya bahosi
+    // Bildirishnomalar va natijalar (11-13)
+    'notifications.html',     // 11. Mentor xabarlari · yutuqlar
+    'weekly-review.html',     // 12. Natijalar — 1 kun / 1 hafta / 1 oy
+    'celebrate.html',         // 13. Haftalik bayram
     // Sozlamalar — eng oxirga (kerak bo'lganda ochiladi)
-    'settings.html'           // 13. Sozlamalar
+    'settings.html'           // 14. Sozlamalar
   ];
 
   const file = (location.pathname.split('/').pop() || 'welcome.html').toLowerCase();

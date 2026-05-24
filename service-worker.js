@@ -3,7 +3,7 @@
  * after first load. Caches all preview HTML files + the logo.
  */
 
-const CACHE_NAME = 'mvow-v4.0.0';
+const CACHE_NAME = 'mvow-v4.1.0';
 const ASSETS = [
   './',
   './gallery.html',
@@ -32,6 +32,7 @@ const ASSETS = [
   './celebrate.html',
   './day-flow.html',
   './tomorrow-plan.html',
+  './today-plan.html',
   './morning-confirm.html',
   './pomodoro.html',
   './routine.html',
