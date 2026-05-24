@@ -1,0 +1,212 @@
+═══════════════════════════════════════════════════════════
+M·VoW — PLAY STORE RO'YXATI · O'ZBEK TILI
+═══════════════════════════════════════════════════════════
+
+APP NAME (ilova nomi, max 30 belgi):
+─────────────────────────────────────
+M·VoW — Intizom do'sti
+
+
+SHORT DESCRIPTION (qisqa tavsif, max 80 belgi):
+─────────────────────────────────────
+AI murabbiy: kuningni rejalashtir, bitta ishni chalg'imasdan qil.
+
+
+FULL DESCRIPTION (to'liq tavsif, max 4000 belgi):
+─────────────────────────────────────
+
+M·VoW — bu **intizom do'sti**. Strogiy nazoratchi emas, sening
+muvaffaqiyatingga olib boruvchi AI murabbiy.
+
+✦ NEGA M·VoW?
+Hozirgi odam kuniga 4-5 soat ekranga qaragancha vaqt yo'qotadi.
+Instagram, TikTok, YouTube — diqqatni tortadi, hayotni yutib boradi.
+M·VoW seni shu girdobdan ozod qiladi.
+
+✦ U QANDAY ISHLAYDI?
+
+🌙 KECHQURUN — Ertangi rejani chizamiz
+Ish, sport, mutolaa, oila — har birini joylashtirasan.
+
+☀ TONGDA — Rejani tasdiqlaysan
+Mentor seni 3 ta savol bilan kunga tayyorlaydi:
+"Bugun kim bo'lib uyg'onding?", "Qaysi ish uchun xursand bo'lasan?",
+"2 daqiqada qaysi qadamni qila olasan?"
+
+⊙ ISH PAYTI — Hard Lock
+Sessiya boshlaganingda Instagram, TikTok, YouTube avtomatik
+bloklanadi. Sen tayinlangan ishga 100% jam bo'lasan. Bypass
+urinilsa — mentor seni savol bilan to'xtatadi.
+
+⊙ POMODORO — 25 daqiqa fokus, 5 daqiqa dam
+Neyrobiologiya printsipiga asoslangan. Prefrontal kortex eng
+samaradorli 25 daqiqa ishlaydi. Tafakkurning ilmiy ritmi.
+
+💭 QISILIB QOLSANG — Mentor yordami
+"Charchadim. Boshlay olmayapman" — desang, mentor 3 ta savol
+bilan tumandan chiqishga yordam beradi.
+
+✦ HAFTA OXIRI — Tabriklash bayram'i
+Har hafta yangi kreativ tabriklash: cho'qqi, yulduzlar, bog',
+daraxt, daryo, tong, qayta tug'ilish, kalit. Sening daraxtingda
+yana bir halqa.
+
+✦ ASOSIY PRINTSIPLAR:
+• Mentor — **intizom do'sti**, qattiq nazoratchi emas
+• Har ish ongli boshlanadi — "Boshlayveraymi?" deb so'raydi
+• Doimiy odatlar (namoz, sport, mutolaa) avtomatik joylashadi
+• 1 haftalik reja bir martada chiziladi
+• Sen charchasang — yumshoq rejim avtomatik yoqiladi
+• Streak saqlanadi, lekin dam ham mukofotlanadi
+• Ovoz bilan ham, matn bilan ham gaplashish mumkin
+
+✦ KIMGA TO'G'RI KELADI?
+• Ishi ko'p ammo diqqatini yo'qotayotgan kishilarga
+• Talaba — kursga tayyorgarlik, imtihon
+• Sportchi — mashqlar intizomi
+• Ijodkor — chuqur fokus vaqti
+• Ota-ona — bolalarga vaqt ajratmoqchi
+• Har kim — kunini ma'noli o'tkazmoqchi
+
+✦ NIMA UCHUN BOSHQA TAYMER ILOVALARDAN FARQLI?
+Boshqa ilovalar — vositalar. M·VoW — do'st.
+Mentor neyrobiolog + psixolog + harakatga chorlovchi do'st
+sifatida ish ko'radi. Har savol miyangizdagi muayyan neyron
+yo'lni faollashtiradi: identitet, vizualizatsiya, harakat.
+
+3-6 oydan keyin sen ilovaga muhtoj bo'lmay qolasan — chunki
+mentor sening ichingga ko'chib o'tgan bo'ladi. Bu ilova
+muvaffaqiyati shu lahzada.
+
+✦ XAVFSIZLIK:
+• Ma'lumotlaring telefonda saqlanadi
+• Server bilan faqat AI mentor uchun gaplashadi
+• Sotmaymiz, ulashmaymiz
+
+✦ ZARUR RUXSATLAR:
+• Accessibility Service — ilovalarni bloklash uchun
+• Overlay — Hard Lock ekranini chiqarish
+• Foydalanish statistikasi — qaysi ilova ochilganini bilish
+• Bildirishnoma — mentor sizni o'z vaqtida eslatadi
+
+Yo'l boshlanyapti. Birinchi qadam — eng kuchlisi.
+
+✦ MNSM AI Specialist tomonidan ishlab chiqilgan.
+
+
+═══════════════════════════════════════════════════════════
+
+KEYWORDS (kalit so'zlar, vergul bilan):
+─────────────────────────────────────
+intizom, fokus, AI murabbiy, mentor, pomodoro, fokuslangan ish,
+ekran vaqti, social media blok, productivity, vaqt boshqaruvi,
+attention, mindfulness, habit tracker, daily planner
+
+
+CATEGORY (kategoriya):
+─────────────────────────────────────
+Productivity (Mahsuldorlik) — birinchi tanlov
+Lifestyle (Hayot tarzi) — ikkinchi tanlov
+
+
+CONTENT RATING (yosh chegarasi):
+─────────────────────────────────────
+Everyone (Hamma uchun) — 3+ yosh
+• Hech qanday zo'ravonlik
+• Hech qanday qimor
+• Hech qanday katta odamga oid kontent
+
+
+CONTACT INFO (aloqa):
+─────────────────────────────────────
+Email: abduazizovanazokat@gmail.com
+Website: mnsm.ai (yoki sizning sayt)
+Phone: ixtiyoriy
+
+
+PRIVACY POLICY URL (maxfiylik siyosati):
+─────────────────────────────────────
+URL kerak. Eng oson yo'l:
+• GitHub Pages: https://nazokat777.github.io/mvow/privacy
+• Yoki Firebase Hosting: bepul
+• Yoki playwithprivacy.org generator orqali
+
+Matn shabloni quyida (alohida fayl: privacy-policy-uz.txt)
+
+
+═══════════════════════════════════════════════════════════
+SCREENSHOTS (skrinshotlar) — kerakli o'lcham va son
+═══════════════════════════════════════════════════════════
+
+Telefon uchun: kamida 2 ta, eng yaxshi 8 ta
+O'lcham: 1080x1920 (16:9) yoki 1080x2400 (modern)
+Format: PNG yoki JPG, max 8MB har biri
+
+Qaysi ekranlardan olishni tavsiya qilaman (oqim bo'yicha):
+1. Welcome ekrani — birinchi taassurot
+2. Daily brief (3 savol) — eng kuchli identik
+3. Day flow (taymerlik fokus) — asosiy ish
+4. Hard Lock — blok mexanizmi
+5. Stuck — emosional yordam
+6. Weekly celebrate — bayram
+7. Profile — daraxt halqalari
+8. Chat — mentor bilan suhbat
+
+Skrinshotlarni telefon orqali olish — eng oson:
+• PWA'ni telefonda ochib, har ekranda Volume Down + Power
+• Yoki Android Studio emulyatorda
+
+
+═══════════════════════════════════════════════════════════
+FEATURE GRAPHIC (asosiy banner)
+═══════════════════════════════════════════════════════════
+
+O'lcham: 1024x500
+Fayl: ./feature-1024x500.png (yaratildi)
+
+Bu Play Store sahifa boshida ko'rinadi.
+
+
+═══════════════════════════════════════════════════════════
+APP ICON (ilova ikonkasi)
+═══════════════════════════════════════════════════════════
+
+O'lcham: 512x512 PNG
+Fayl: ./icon-512.png (yaratildi)
+
+
+═══════════════════════════════════════════════════════════
+NIMA QILISH KERAK — KETMA-KETLIK
+═══════════════════════════════════════════════════════════
+
+1. Google Play Console ochish:
+   https://play.google.com/console/signup
+   Narx: $25 (bir martalik, umrbod)
+   Kerak: bank kartangiz, ID
+
+2. Yangi ilova yaratish:
+   • App name: M·VoW
+   • Default language: Uzbek (uz)
+   • App or game: App
+   • Free or paid: Free (bepul)
+
+3. Store listing to'ldirish:
+   • Yuqoridagi matnlarni nusxa olib qo'yish
+   • icon-512.png, feature-1024x500.png yuklash
+   • 2-8 ta skrinshot yuklash
+
+4. App content (Ilova mazmuni):
+   • Privacy policy URL kiritish
+   • Target audience: Adults (18+)  — chunki ilova ekran vaqtini boshqaradi
+   • Ads: Yo'q (reklama yo'q)
+   • Permissions tushuntirish
+
+5. Pricing & distribution:
+   • Free
+   • Countries: O'zbekiston, Tojikiston, Qozog'iston (boshlash uchun)
+   • Yoki Worldwide
+
+6. App release:
+   • Internal testing (1-2 kun) — siz va do'stlaringiz uchun
+   • Closed testing (1 hafta) — keng test guruhi
+   • Production — hammaga

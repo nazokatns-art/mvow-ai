@@ -1,0 +1,72 @@
+M·VoW — MAXFIYLIK SIYOSATI
+═══════════════════════════════════════════════════════════
+Yangilangan: 2026-yil 16-may
+Ishlab chiquvchi: MNSM AI Specialist
+Aloqa: abduazizovanazokat@gmail.com
+
+1. NIMA MA'LUMOT YIG'AMIZ?
+
+Biz quyidagi ma'lumotlarni faqat ilovangiz ichida saqlaymiz
+(serverga yuborilmaydi):
+• Sizning ismingiz va tanlagan tilingiz
+• Sessiyalar tarixi, vaqt, davomiyligi
+• Bloklangan ilovalar ro'yxati
+• Streak (ketma-ket kunlar), statistika
+• Mentor bilan suhbat tarixi
+
+Quyidagilarni server bilan almashtiramiz (faqat AI mentor uchun):
+• Sizning hozirgi savolingiz/suhbatingiz matni
+• Hozirgi sessiya konteksti (mentor javob berishi uchun)
+Bu ma'lumotlar Anthropic Claude AI tomonidan qayta ishlanadi
+va saqlanmaydi (Anthropic'ning maxfiylik siyosatiga muvofiq).
+
+2. NIMA MA'LUMOT YIG'MAYMIZ?
+
+• Sizning shaxsiy hujjatlaringiz (pasport, ID)
+• Bank kartangiz yoki to'lov ma'lumoti (ilova bepul)
+• Sizning joylashuvingiz (faqat namoz vaqti uchun viloyat tanlasangiz)
+• Sizning foto/video galereyalaringiz
+• Kontaktlar ro'yxati
+• SMS, qo'ng'iroqlar, telefon raqami
+
+3. NEGA RUXSAT SO'RAYMIZ?
+
+• ACCESSIBILITY SERVICE — Bloklangan ilovalar ochilganini sezish
+  va Hard Lock ekranini ko'rsatish uchun
+• OVERLAY (SYSTEM_ALERT_WINDOW) — Boshqa ilovalar ustiga
+  fokus ekranini chiqarish uchun
+• USAGE STATS — Qaysi ilova ishlatilayotganini bilish (statistika)
+• POST_NOTIFICATIONS — Mentor sizga eslatma yuborishi uchun
+• RECORD_AUDIO — Ovoz bilan rejalashtirish va mentor bilan
+  gaplashish uchun (ixtiyoriy)
+• FOREGROUND_SERVICE — Sessiya davom etayotganini bildirish
+• BOOT_COMPLETED — Telefon qayta yondirilganda sozlamalarni tiklash
+
+4. UCHINCHI TARAFLAR
+
+Biz quyidagi xizmatlardan foydalanamiz:
+• Anthropic Claude AI — mentor javoblari uchun
+  (https://www.anthropic.com/privacy)
+• Google (ixtiyoriy) — agar siz Google Calendar bilan
+  sinxronlamoqchi bo'lsangiz
+
+Sizning ma'lumotlaringiz hech kimga sotilmaydi.
+
+5. MA'LUMOTLARNI O'CHIRISH
+
+Istalgan paytda:
+• Sozlamalar → Akkauntni o'chirish — barcha ma'lumotlaringizni
+  o'chirib tashlaydi
+• Yoki ilovani o'chirish — barcha ma'lumotlar olib tashlanadi
+
+6. BOLALAR
+
+Bu ilova 13 yoshdan kichik bolalar uchun mo'ljallanmagan.
+
+7. O'ZGARISHLAR
+
+Maxfiylik siyosati o'zgarsa, ilova ichida xabardor qilamiz.
+
+8. ALOQA
+
+Savol bo'lsa: abduazizovanazokat@gmail.com

@@ -1,0 +1,10 @@
+# Mentor-AI uchun mahalliy sozlamalar
+# Bu faylni `local.properties` ga ko'chiring va API kalitlaringizni qo'shing.
+# `local.properties` git'ga commit qilinmaydi.
+
+# Android SDK joyi (Android Studio avtomatik to'ldiradi)
+# sdk.dir=/Users/you/Library/Android/sdk
+
+# Anthropic API kaliti (https://console.anthropic.com/settings/keys)
+# DIQQAT: Production builds'da server proxy orqali ishlating!
+ANTHROPIC_API_KEY=

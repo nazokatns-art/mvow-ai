@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Discipline palette -->
+    <color name="surface_void">#FF08090B</color>
+    <color name="surface_steel">#FF15171C</color>
+    <color name="surface_iron">#FF1F2228</color>
+
+    <color name="text_primary">#FFF5F2EC</color>
+    <color name="text_body">#FFB8BBC2</color>
+    <color name="text_muted">#FF6B6E76</color>
+    <color name="text_ghost">#FF3A3D44</color>
+
+    <color name="accent_iron">#FFD9DCE0</color>
+    <color name="accent_brass">#FFC7A36B</color>
+
+    <color name="signal_warn">#FFC7A36B</color>
+    <color name="signal_fail">#FF8C2A2A</color>
+    <color name="signal_commit">#FF4A5D3A</color>
+
+    <!-- Adaptive launcher icon background -->
+    <color name="ic_launcher_background">#FF04060B</color>
+</resources>

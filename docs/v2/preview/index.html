@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>M·VoW</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#04060B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="M·VoW">
+<link rel="apple-touch-icon" href="assets/mnsm-logo.png">
+<link rel="icon" type="image/png" href="assets/mnsm-logo.png">
+<style>
+  body { margin: 0; background: #04060B; }
+</style>
+<script>
+  // On phone: jump straight into the app at Welcome.
+  // On desktop wide screen: show the gallery overview.
+  const isMobile = window.matchMedia('(max-width: 720px)').matches
+                || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  location.replace(isMobile ? 'welcome.html' : 'gallery.html');
+</script>
+</head>
+<body></body>
+</html>

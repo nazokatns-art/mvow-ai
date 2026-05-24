@@ -1,0 +1,77 @@
+# Mentor / M-VoW AI — gitignore (root)
+
+# === IDE ===
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# === Android ===
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+android/local.properties
+android/.kotlin/
+**/build/
+**/.gradle/
+**/.kotlin/
+
+# === Build outputs ===
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# === Secrets — NEVER commit ===
+local.properties
+keystore.properties
+*.jks
+*.keystore
+*.p12
+*.pem
+google-services.json
+GoogleService-Info.plist
+.env
+.env.local
+.env.production
+
+# === Logs ===
+*.log
+logs/
+
+# === Temp ===
+*.tmp
+*.temp
+~$*
+.~lock.*
+
+# === Native ===
+*.so.dbg
+*.so.debug
+
+# === Docs build ===
+docs/_build/
+docs/site/
+
+# === OS ===
+.DS_Store
+desktop.ini
+$RECYCLE.BIN/
+
+# === Testing ===
+coverage/
+.nyc_output/
+*.lcov
+
+# === Backend (kelajakda) ===
+backend/node_modules/
+backend/.wrangler/
+backend/dist/
+backend/.dev.vars
