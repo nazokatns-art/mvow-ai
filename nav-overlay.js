@@ -145,29 +145,26 @@
     replaceUserName();
   }
 
-  // MVP scope (2026-05-24, kengaytirilgan) — 13 ta zarur ekran.
-  //   • Onboarding (1-6): tanishuv → mentor → maqsad → sozlamalar → ruxsatlar → tayyor
-  //   • Rejalashtirish (7-8): AI bilan kun tartibi + tonggi tasdiq
-  //   • Ish (9-11): taymer, qulflash, baho
-  //   • Natijalar (12-13): tahlil va bayram
+  // MVP scope (2026-05-24, qayta) — 12 ta zarur ekran.
+  // done.html SEQ'dan olib tashlandi — onboarding tugashi sahifasi kerakmas.
+  // routine.html 6-pozitsiyada: "Rejalaringni ayt, kun tartibini tuzamiz"
   const SEQ = [
-    // Onboarding (1-6)
-    'welcome.html',           // 1. Tanishuv — ism + til
-    'voice-commitment.html',  // 2. Mentor bilan tanishuv (do'stona)
+    // Onboarding (1-5)
+    'welcome.html',           // 1. Tanishuv — ism
+    'voice-commitment.html',  // 2. Mentor bilan tanishuv (va'da)
     'goal.html',              // 3. Maqsadingni so'rash
-    'settings.html',          // 4. Sozlamalar — ohang, bloklash, davomiylik (avval tanlash)
-    'permissions.html',       // 5. Ruxsatlar (sozlamalar ishlashi uchun)
-    'done.html',              // 6. "Tayyormiz"
-    // Rejalashtirish (7-8)
-    'routine.html',           // 7. AI bilan kun tartibi
-    'morning-confirm.html',   // 8. Tonggi tasdiq
-    // Ish (9-11)
-    'day-flow.html',          // 9. Taymer + nazorat
-    'hard-lock.html',         // 10. Ekran qulflash (bloklash ishlayotgan ekran)
-    'session-reflection.html',// 11. Sessiya tugadi — baho
-    // Natijalar (12-13)
-    'weekly-review.html',     // 12. Natijalar — 1 kun / 1 hafta / 1 oy
-    'celebrate.html'          // 13. Haftalik bayram
+    'settings.html',          // 4. Sozlamalar
+    'permissions.html',       // 5. Ruxsatlar
+    // Reja tuzish (6-7)
+    'routine.html',           // 6. "Rejalaringni ayt, kun tartibini tuzamiz" — AI
+    'calendar.html',          // 7. Haftalik kalendar — sariq (kutilmoqda) · yashil (bajarildi) · rangsiz (bajarilmagan)
+    // Ish (8-10)
+    'day-flow.html',          // 8. Taymer + nazorat
+    'hard-lock.html',         // 9. Ekran qulflash
+    'session-reflection.html',// 10. Sessiya bahosi
+    // Natijalar (11-12)
+    'weekly-review.html',     // 11. Natijalar — 1 kun / 1 hafta / 1 oy
+    'celebrate.html'          // 12. Haftalik bayram
   ];
 
   const file = (location.pathname.split('/').pop() || 'welcome.html').toLowerCase();

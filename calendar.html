@@ -239,6 +239,8 @@
   }
 
   /* Sessions plotted */
+  /* === HOLAT RANGLARI ===
+     Default (sariq) = kutilmoqda · .done (yashil) = bajarildi · .missed (kulrang) = bajarilmagan */
   .session-bar {
     position: absolute;
     left: 2px; right: 2px;
@@ -256,18 +258,28 @@
     z-index: 5;
     box-shadow: 0 0 12px rgba(232,199,126,0.35);
   }
-  .session-bar.muqaddas {
-    background: rgba(184,51,74,0.15);
-    border-color: var(--crimson);
-  }
+  /* Bajarildi — yashil */
   .session-bar.done {
     background: rgba(74,138,92,0.15);
     border-color: var(--emerald);
   }
+  /* Bajarilmagan — rangsizroq (kulrang faded) */
+  .session-bar.missed {
+    background: rgba(107,110,118,0.10);
+    border-color: var(--text-muted);
+    border-style: dashed;
+    opacity: 0.55;
+  }
+  /* Onlayn dars — qisman shaffof */
   .session-bar.online {
     background: rgba(212,165,116,0.10);
     border-color: var(--honey);
     border-style: dashed;
+  }
+  /* Muhim/Muqaddas — qizil (juda kam ishlatish) */
+  .session-bar.muqaddas {
+    background: rgba(184,51,74,0.15);
+    border-color: var(--crimson);
   }
   .session-bar .name {
     font-family: 'JetBrains Mono', monospace;
@@ -279,15 +291,17 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .session-bar.muqaddas .name { color: var(--crimson); }
-  .session-bar.done .name { color: var(--emerald); }
-  .session-bar.online .name { color: var(--honey); }
+  .session-bar.done .name    { color: var(--emerald); }
+  .session-bar.missed .name  { color: var(--text-muted); text-decoration: line-through; }
+  .session-bar.online .name  { color: var(--honey); }
+  .session-bar.muqaddas .name{ color: var(--crimson); }
   .session-bar .check {
     position: absolute;
     top: 1px; right: 3px;
     font-size: 8px;
     color: var(--emerald);
   }
+  .session-bar.missed .check { color: var(--text-muted); content: '×'; }
 
   /* HOZIR cursor — horizontal line */
   .now-line {
@@ -397,10 +411,11 @@
     width: 14px; height: 6px; border-radius: 2px;
     border: 1px solid;
   }
-  .legend .l-item .swatch.muq { background: rgba(184,51,74,0.15); border-color: var(--crimson); }
   .legend .l-item .swatch.gld { background: rgba(232,199,126,0.10); border-color: var(--gold); }
   .legend .l-item .swatch.don { background: rgba(74,138,92,0.15); border-color: var(--emerald); }
+  .legend .l-item .swatch.mis { background: rgba(107,110,118,0.10); border-color: var(--text-muted); border-style: dashed; opacity:.55; }
   .legend .l-item .swatch.onl { background: rgba(212,165,116,0.10); border-color: var(--honey); border-style: dashed; }
+  .legend .l-item .swatch.muq { background: rgba(184,51,74,0.15); border-color: var(--crimson); }
 
   .vignette {
     position: absolute; inset: 0;
@@ -501,9 +516,10 @@
 
     <!-- Legend -->
     <div class="legend">
+      <div class="l-item"><div class="swatch gld"></div><span>KUTILMOQDA</span></div>
       <div class="l-item"><div class="swatch don"></div><span>BAJARILDI</span></div>
-      <div class="l-item"><div class="swatch muq"></div><span>MUQADDAS</span></div>
-      <div class="l-item"><div class="swatch onl"></div><span>ONLINE DARS</span></div>
+      <div class="l-item"><div class="swatch mis"></div><span>BAJARILMAGAN</span></div>
+      <div class="l-item"><div class="swatch onl"></div><span>ONLINE</span></div>
     </div>
 
     <!-- FAB -->
@@ -561,7 +577,7 @@
     { day: 1, start: '19:30', end: '21:00', name: 'ALG. DARS',  type: 'online done' },
     { day: 2, start: '07:00', end: '07:30', name: 'BOMDOD',     type: 'done' },
     { day: 2, start: '11:00', end: '12:00', name: 'KITOB',      type: 'done' },
-    { day: 2, start: '14:30', end: '15:15', name: 'QUR\'ON',    type: 'done' },
+    { day: 2, start: '14:30', end: '15:15', name: 'QUR\'ON',    type: 'missed' },
     { day: 3, start: '07:00', end: '07:30', name: 'BOMDOD',     type: 'done' },
     { day: 3, start: '08:00', end: '09:30', name: 'YUGURISH',   type: 'done' },
     { day: 3, start: '10:00', end: '13:00', name: 'CHUQUR · 3S', type: 'done' },
@@ -570,13 +586,13 @@
     { day: 4, start: '07:00', end: '07:30', name: 'BOMDOD',     type: 'done' },
     { day: 4, start: '09:00', end: '11:00', name: 'KOD',        type: 'done' },
     { day: 4, start: '14:30', end: '15:15', name: 'QUR\'ON',    type: 'done' },
-    { day: 4, start: '17:00', end: '17:30', name: 'KO\'RIK',    type: 'done' },
+    { day: 4, start: '17:00', end: '17:30', name: 'KO\'RIK',    type: 'missed' },
     { day: 5, start: '08:00', end: '09:00', name: 'KITOB',      type: 'done' }, // shanba — light
     // Today (Sunday — 10 May)
     { day: 6, start: '07:00', end: '07:30', name: 'BOMDOD',     type: 'done' },
     { day: 6, start: '08:30', end: '09:30', name: 'SPORT',      type: 'done' },
     { day: 6, start: '10:00', end: '11:30', name: 'KOD',        type: 'done' },
-    { day: 6, start: '14:30', end: '15:15', name: 'QUR\'ON',    type: 'muqaddas' },
+    { day: 6, start: '14:30', end: '15:15', name: 'QUR\'ON',    type: '' },
     { day: 6, start: '17:00', end: '17:30', name: 'KO\'RIK',    type: '' },
     { day: 6, start: '19:30', end: '21:00', name: 'ALG. DARS',  type: 'online' }
   ];
