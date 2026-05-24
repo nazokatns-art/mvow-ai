@@ -95,6 +95,53 @@
   }
   @keyframes dot-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
 
+  /* === Bugungi jadval — gorizontal scroll strip === */
+  .day-schedule {
+    position:absolute; top:56px; left:0; right:0; z-index:4;
+    padding:8px 14px;
+    overflow-x:auto; overflow-y:hidden; white-space:nowrap;
+    scrollbar-width:none;
+  }
+  .day-schedule::-webkit-scrollbar { display:none; }
+  .day-schedule .chip {
+    display:inline-block; vertical-align:middle;
+    padding:5px 10px; margin-right:5px;
+    border-radius:6px; border:1px solid var(--gold-deep);
+    background:rgba(232,199,126,.05);
+    font-family:'JetBrains Mono',monospace; font-size:8px;
+    letter-spacing:.5px; color:var(--gold);
+  }
+  .day-schedule .chip .time { color:var(--gold-flash); font-weight:600; }
+  .day-schedule .chip .name { color:var(--text-body); margin-left:4px; }
+  .day-schedule .chip .dur  { color:var(--gold-deep); margin-left:3px; font-size:7px; }
+  .day-schedule .chip.done {
+    border-color:var(--emerald); background:rgba(74,138,92,.10);
+  }
+  .day-schedule .chip.done .time,
+  .day-schedule .chip.done .name { color:var(--emerald); }
+  .day-schedule .chip.now {
+    border-color:var(--gold); background:rgba(232,199,126,.18);
+    box-shadow:0 0 10px rgba(232,199,126,.4);
+    animation:chip-pulse 1.8s ease-in-out infinite;
+  }
+  .day-schedule .chip.now .name { color:var(--text-primary); }
+  .day-schedule .chip.upcoming {
+    opacity:.7;
+  }
+  .day-schedule .rest {
+    display:inline-block; vertical-align:middle;
+    padding:5px 8px; margin-right:5px;
+    border-radius:6px; border:1px dashed var(--text-ghost);
+    background:rgba(124,168,201,.04);
+    font-family:'JetBrains Mono',monospace; font-size:7.5px;
+    letter-spacing:1px; color:var(--text-muted);
+  }
+  .day-schedule .rest::before { content:"☾ "; color:var(--sky); }
+  @keyframes chip-pulse {
+    0%,100% { box-shadow:0 0 10px rgba(232,199,126,.4); }
+    50%     { box-shadow:0 0 18px rgba(232,199,126,.7); }
+  }
+
   /* === Task title === */
   .task-block {
     position:absolute; top:80px; left:24px; right:24px;
@@ -333,16 +380,20 @@
 
   <!-- Day progress -->
   <div class="day-progress">
-    <div class="label">BUGUNGI YO'L · <span class="em" id="dayCounter">3</span> / 7</div>
-    <div class="dots" id="dayDots">
-      <div class="dot done"></div>
-      <div class="dot done"></div>
-      <div class="dot current"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-    </div>
+    <div class="label">BUGUNGI YO'L · <span class="em" id="dayCounter">2</span> / 5</div>
+  </div>
+
+  <!-- Bugungi jadval — vaqt + nom + davomiylik, dam'lar bilan -->
+  <div class="day-schedule" id="daySchedule">
+    <span class="chip done"><span class="time">04:00</span><span class="name">Qur'on darsi</span><span class="dur">·2s</span></span>
+    <span class="rest">20 daq</span>
+    <span class="chip now"><span class="time">06:20</span><span class="name">Arab grammatikasi</span><span class="dur">·1s</span></span>
+    <span class="rest">2 soat 40 daq</span>
+    <span class="chip upcoming"><span class="time">10:00</span><span class="name">SMM darslari</span><span class="dur">·2s</span></span>
+    <span class="rest">1 soat</span>
+    <span class="chip upcoming"><span class="time">13:00</span><span class="name">Loyiha · kod</span><span class="dur">·1.5s</span></span>
+    <span class="rest">30 daq</span>
+    <span class="chip upcoming"><span class="time">15:00</span><span class="name">Kitob · mutolaa</span><span class="dur">·45 daq</span></span>
   </div>
 
   <!-- Task -->
@@ -433,13 +484,13 @@
     },
     running: {
       data: 'running',
-      pre: '3-ISH · CHUQUR FOKUS', title: 'Kod yozish · API',
-      goal: '"API integratsiyasini tugatish va testlarni yozish"',
-      timerText: '23:42', timerLabel: 'QOLDI',
-      progress: 0.4,
-      mentor: '<span class="em">2-pomodoro</span> davom etmoqda. Ko'zlaringni 20 soniya uzoq narsaga qaratsang — diqqat tiniqlashadi. Davom et.',
+      pre: '2-ISH · 06:20 — 07:20', title: 'Arab grammatikasi',
+      goal: '"Sarf-nahv asoslari — 1 soatlik fokus"',
+      timerText: '42:18', timerLabel: 'QOLDI',
+      progress: 0.30,
+      mentor: '<span class="em">42 daqiqa</span> qoldi. Yozuvga e'tibor qarat — har qoidani bir misol bilan eslab qol. Soat 07:20 da tugaydi.',
       btn: 'DAVOM ETAMAN',
-      pomo: true, pomoCurrent: 1
+      pomo: false
     },
     break: {
       data: 'break',
@@ -453,12 +504,12 @@
     },
     done: {
       data: 'done',
-      pre: '3-ISH BAJARILDI ✓', title: 'Kod yozish · TUGADI',
-      goal: '"45 daqiqa fokus, 4 pomodoro · API integratsiya yopildi"',
+      pre: '2-ISH BAJARILDI ✓', title: 'Arab grammatikasi · TUGADI',
+      goal: '"1 soat fokus tugadi — soat 07:20"',
       timerText: '00:00', timerLabel: 'BAJARDING',
       progress: 1,
-      mentor: '<span class="em">Bajarding.</span> Yana bir halqa daraxtingda. Endi 5 daqiqa dam, keyin 4-ish — yugurish. Tayyormisan?',
-      btn: '4-ISHGA O\'TAMAN',
+      mentor: '<span class="em">Bajarding.</span> Yana bir halqa daraxtingda. Keyingi ish — soat 10:00 da SMM darslari. Hozir biroz dam va boshqa ishlaringga vaqt.',
+      btn: 'KEYINGI ISHGA — 10:00',
       pomo: false
     },
     tired: {
