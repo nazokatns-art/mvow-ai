@@ -29,6 +29,120 @@
     --glow:        #00E5D4;
     --glow-end:    #00B5A8;
     --glow-dim:    #007D75;
+
+    --alert:       #FF4757;
+    --alert-deep:  #B8334A;
+    --alert-dim:   #6B1F1F;
+  }
+
+  /* === Alert state: triggered when user tries to open Instagram/TikTok === */
+  .phone[data-state="alert"] {
+    background: #1c0a0e !important;
+    animation: alert-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes alert-pulse {
+    0%, 100% { box-shadow: 0 0 0 8px #2a2e36, 0 0 60px rgba(255,71,87,.3); }
+    50%      { box-shadow: 0 0 0 8px #2a2e36, 0 0 100px rgba(255,71,87,.6); }
+  }
+  .phone[data-state="alert"] .lock-badge {
+    border-color: var(--alert) !important;
+    color: var(--alert) !important;
+    background: rgba(255,71,87,.08) !important;
+  }
+  .phone[data-state="alert"] .ring-progress { stroke: var(--alert) !important; }
+  .phone[data-state="alert"] .ring-track    { stroke: rgba(184,51,74,.25) !important; }
+  .phone[data-state="alert"] .timer-digits  { color: var(--alert) !important; }
+  .phone[data-state="alert"] .task-pill {
+    border-color: var(--alert) !important;
+    color: var(--alert) !important;
+    background: rgba(255,71,87,.06) !important;
+  }
+  .phone[data-state="alert"] .mic-button {
+    background: linear-gradient(180deg, #FFB6BD, var(--alert), var(--alert-deep)) !important;
+    box-shadow: 0 0 20px rgba(255,71,87,.5) !important;
+  }
+  .phone[data-state="alert"] .mic-halo {
+    background: radial-gradient(circle, rgba(255,71,87,.35), transparent 70%) !important;
+  }
+  .phone[data-state="alert"] .shield svg path,
+  .phone[data-state="alert"] .shield svg circle {
+    stroke: var(--alert) !important;
+    fill: var(--alert);
+  }
+  .phone[data-state="alert"] .brand { color: var(--alert) !important; }
+  .phone[data-state="alert"] .focus-text {
+    color: var(--alert) !important;
+    font-weight: 600;
+  }
+
+  /* Alert banner — replaces the calm "FOKUSDA QOL" with a warning */
+  .alert-banner {
+    display: none;
+    margin: 14px 18px 0;
+    padding: 14px 16px;
+    border: 1.5px solid var(--alert);
+    border-radius: 6px;
+    background: rgba(255,71,87,.10);
+    box-shadow: 0 0 18px rgba(255,71,87,.25);
+    animation: banner-flash 1s ease;
+  }
+  .phone[data-state="alert"] .alert-banner { display: block; }
+  @keyframes banner-flash {
+    from { opacity: 0; transform: scale(.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .alert-banner .head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 3px;
+    color: var(--alert); margin-bottom: 6px;
+  }
+  .alert-banner .msg {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 14px;
+    color: var(--text-primary); line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .alert-banner .msg .app {
+    color: var(--alert); font-weight: 600; font-style: normal;
+  }
+  .alert-banner .actions {
+    display: flex; gap: 8px;
+  }
+  .alert-banner .btn {
+    flex: 1; padding: 11px 8px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none; text-align: center;
+    transition: transform .15s;
+  }
+  .alert-banner .btn:active { transform: scale(.97); }
+  .alert-banner .btn.stay {
+    background: linear-gradient(180deg, #C5F3EE, var(--glow), var(--glow-dim));
+    color: var(--void); border: none;
+  }
+  .alert-banner .btn.ask {
+    background: transparent;
+    border: 1.5px solid var(--alert);
+    color: var(--alert);
+  }
+
+  /* Hide the calm controls in alert state */
+  .phone[data-state="alert"] .focus-text,
+  .phone[data-state="alert"] .tts-text { display: none; }
+
+  /* Make INSTAGRAM/TIKTOK rows tappable to trigger the alert demo */
+  .distraction-row {
+    cursor: pointer;
+    transition: color .2s, background .15s;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 0 -8px;
+  }
+  .distraction-row:active {
+    background: rgba(255,71,87,.10);
   }
 
   body {
@@ -320,7 +434,7 @@
 <body>
 
 <div class="container" style="display:flex; flex-direction:column; align-items:center;">
-  <div class="phone">
+  <div class="phone" id="phone" data-state="locked">
     <!-- Header -->
     <div class="header">
       <div class="shield">
@@ -355,20 +469,32 @@
     <!-- Task pill -->
     <div class="task-pill">ARAB GRAMMATIKASI · 06:20 — 07:20</div>
 
-    <!-- Blocked distractions -->
+    <!-- Blocked distractions (tap one to demo the alert state) -->
     <div class="distractions">
       <div class="distractions-label">BLOKLANGAN · DIQQATNI O'G'IRLAGUVCHILAR</div>
-      <div class="distraction-row">
+      <div class="distraction-row" data-app="Instagram">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
         INSTAGRAM
       </div>
-      <div class="distraction-row">
+      <div class="distraction-row" data-app="TikTok">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
         TIKTOK
       </div>
-      <div class="distraction-row">
+      <div class="distraction-row" data-app="YouTube">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
         YOUTUBE
+      </div>
+    </div>
+
+    <!-- Alert banner — appears when user tries to open a blocked app -->
+    <div class="alert-banner" id="alertBanner">
+      <div class="head">⚠ FOKUS BUZILMOQDA</div>
+      <div class="msg">
+        <span class="app" id="alertApp">Instagram</span> ochmoqchimisan? Hozir <span style="color:#FF4757;font-weight:600;">Arab grammatikasi</span> vaqti.
+      </div>
+      <div class="actions">
+        <button class="btn stay" id="stayBtn">YO'Q · FOKUSDA QOLAMAN</button>
+        <a class="btn ask" href="negotiation.html">RUXSAT SO'RAYMAN ›</a>
       </div>
     </div>
 
@@ -427,6 +553,29 @@
 
   tick();
   setInterval(tick, 1000);
+
+  // === Alert flow demo: tap a blocked app → ekran qizilga aylanadi ===
+  const phone = document.getElementById('phone');
+  const alertApp = document.getElementById('alertApp');
+  const stayBtn = document.getElementById('stayBtn');
+
+  document.querySelectorAll('.distraction-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const app = row.dataset.app || 'Instagram';
+      alertApp.textContent = app;
+      phone.dataset.state = 'alert';
+      // Haptic-like visual: brief shake
+      phone.style.transition = 'transform .08s';
+      phone.style.transform = 'translateX(4px)';
+      setTimeout(() => phone.style.transform = 'translateX(-4px)', 80);
+      setTimeout(() => phone.style.transform = 'translateX(0)', 160);
+    });
+  });
+
+  // Stay → revert to calm locked state
+  stayBtn.addEventListener('click', () => {
+    phone.dataset.state = 'locked';
+  });
 </script>
 
 <script src="nav-overlay.js" defer></script>
