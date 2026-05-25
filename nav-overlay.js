@@ -155,16 +155,18 @@
     'permissions.html',       // 4. Ruxsatlar (rejani amalga oshirish uchun)
     'routine.html',           // 5. "Rejalaringni ayt, kun tartibini tuzamiz" — AI
     'settings.html',          // 6. Sozlamalar — mentor ohangi, sessiya sozlamalari
-    // Ko'rish — bajarish (7-11)
-    'calendar.html',          // 7. Haftalik kalendar
-    'today-plan.html',        // 8. Bugungi tayyor kun tartibi ro'yxati
-    'day-flow.html',          // 9. Taymer + nazorat
-    'hard-lock.html',         // 10. Ekran qulflash
-    'session-reflection.html',// 11. Sessiya bahosi
-    // Bildirishnomalar va natijalar (12-14)
-    'notifications.html',     // 12. Mentor xabarlari · yutuqlar
-    'weekly-review.html',     // 13. Natijalar — 1 kun / 1 hafta / 1 oy
-    'celebrate.html'          // 14. Haftalik bayram
+    'chat.html',              // 7. Mentor bilan suhbat — istalgan paytda gaplashish
+    // Ko'rish — bajarish (8-12)
+    'calendar.html',          // 8. Haftalik kalendar
+    'today-plan.html',        // 9. Bugungi tayyor kun tartibi ro'yxati
+    'day-flow.html',          // 10. Taymer + nazorat
+    'hard-lock.html',         // 11. Ekran qulflash
+    'negotiation.html',       // 12. Diqqat buzishga urinish — qizil ogohlantirish + ruxsat so'rash
+    'session-reflection.html',// 13. Sessiya bahosi
+    // Bildirishnomalar va natijalar (14-16)
+    'notifications.html',     // 14. Mentor xabarlari · yutuqlar
+    'weekly-review.html',     // 15. Natijalar — 1 kun / 1 hafta / 1 oy
+    'celebrate.html'          // 16. Haftalik bayram
   ];
 
   const file = (location.pathname.split('/').pop() || 'welcome.html').toLowerCase();

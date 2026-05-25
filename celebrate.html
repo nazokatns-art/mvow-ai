@@ -489,25 +489,60 @@
   @media (max-width:480px){
     body{padding:0 !important; align-items:stretch !important; min-height:100vh}
     .phone{
-      width:100vw !important; height:100vh !important;
+      width:100vw !important; height:auto !important;
       min-height:100vh !important; border-radius:0 !important;
-      box-shadow:none !important; padding:0 !important;
-      overflow:hidden !important;
+      box-shadow:none !important; padding:60px 0 130px !important;
+      overflow:visible !important;
     }
-    .variant {
-      width:100vw !important; height:100vh !important;
-      min-height:100vh !important;
-      padding:60px 0 130px !important;
+    /* Mobile: hide all artistic variants + their bottom-bars — show only summary cards */
+    .variant { display:none !important; }
+
+    /* Mobile-only TABRIKLAYMAN header (injected via JS or shown via CSS) */
+    .mobile-celebrate-header {
+      display:block !important;
+      text-align:center;
+      padding: 14px 22px 8px;
+      margin: 0 auto 6px;
     }
-    .variant .headline { padding: 0 22px !important; }
-    .variant .mentor-letter { margin: 14px 22px !important; }
-    .variant .bottom-bar {
-      position:absolute !important;
-      bottom:24px !important; left:24px !important; right:24px !important;
-      transform:none !important;
+    .mobile-celebrate-header .pre {
+      font-family:'JetBrains Mono',monospace;
+      font-size:9px; letter-spacing:4px;
+      color:var(--gold-deep); margin-bottom:8px;
     }
+    .mobile-celebrate-header .big {
+      font-family:'Cinzel',serif; font-weight:700;
+      font-size:38px; letter-spacing:2px;
+      color:var(--gold-flash);
+      text-shadow:0 0 30px rgba(232,199,126,.55);
+      margin-bottom:6px;
+    }
+    .mobile-celebrate-header .sub {
+      font-family:'Cormorant Garamond',serif; font-style:italic;
+      font-size:14px; color:var(--text-body);
+    }
+
+    /* Mobile fixed bottom button */
+    .mobile-celebrate-bar {
+      display:block !important;
+      position:fixed !important;
+      bottom:0; left:0; right:0;
+      padding:14px 22px env(safe-area-inset-bottom, 14px);
+      background:linear-gradient(180deg, transparent, rgba(4,6,11,.95) 30%);
+      z-index:50;
+    }
+    .mobile-celebrate-bar .btn {
+      width:100%; padding:14px;
+      background:linear-gradient(180deg, var(--cream), var(--gold), var(--gold-deep));
+      color:var(--void); font-size:12px; font-weight:700;
+      letter-spacing:4px; border:none; border-radius:4px;
+      cursor:pointer; text-transform:uppercase;
+      box-shadow:0 0 22px rgba(232,199,126,.40), inset 0 1px 0 rgba(255,255,255,.5);
+    }
+
     .footer-info,.variant-tabs{display:none}
   }
+  /* Hidden by default on desktop */
+  .mobile-celebrate-header, .mobile-celebrate-bar { display:none; }
 </style>
 </head>
 <body>
@@ -524,6 +559,13 @@
   <div class="week-stamp">
     <span class="star">✦</span>
     <span>HAFTA TUGADI · 7 KUN</span>
+  </div>
+
+  <!-- Mobile-only celebrate header (visible only on screens ≤480px) -->
+  <div class="mobile-celebrate-header">
+    <div class="pre">HAFTA TUGADI · 7 KUN</div>
+    <div class="big">TABRIKLAYMAN</div>
+    <div class="sub">Bir hafta intizom — boshqa odam bo'lyapsan.</div>
   </div>
 
   <!-- VARIANT 1: Mountain Summit -->
@@ -907,6 +949,11 @@
         <div class="v">47 soat fokus</div>
       </div>
     </div>
+  </div>
+
+  <!-- Mobile-only fixed bottom button (visible only on screens ≤480px) -->
+  <div class="mobile-celebrate-bar">
+    <button class="btn" onclick="location.href='routine.html'">KEYINGI HAFTANI TUZAMIZ</button>
   </div>
 
   <!-- Odat zanjiri — har variantning pastida ko'rinadi -->
