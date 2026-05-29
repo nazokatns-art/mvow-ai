@@ -1,0 +1,64 @@
+# Codemagic CI — Focus AI (M·VoW)
+# Ikkala ilovani ham bulutda quradi: Android (Play Market) + iOS (App Store).
+# Windows kompyuterdan turib ishlaydi — JDK ham, Mac ham kerak emas.
+#
+# Boshlash:
+#   1. codemagic.io ga GitHub bilan kir
+#   2. "Add application" → nazokatns-art/mvow-ai repo'sini ulang (yoki shu repo)
+#   3. Bu fayl avtomatik topiladi → workflow tanlab "Start build" bos
+#
+# Bu birinchi bosqich: IMZOSIZ build — kod kompilyatsiya bo'lishini tekshiradi.
+# Do'konga yuborish (signing + publishing) keyingi bosqichda qo'shiladi.
+
+workflows:
+
+  # ───────────────────────────── ANDROID ─────────────────────────────
+  android-build:
+    name: Android — Play Market (AAB test)
+    instance_type: linux_x2
+    max_build_duration: 60
+    environment:
+      java: 17
+    scripts:
+      - name: local.properties yaratish (SDK yo'li)
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > android/local.properties
+      - name: Gradle build (debug AAB — imzosiz)
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew bundleDebug --stacktrace
+    artifacts:
+      - android/app/build/outputs/**/*.aab
+      - android/app/build/outputs/**/*.apk
+      - android/app/build/reports/**
+
+  # ─────────────────────────────── iOS ───────────────────────────────
+  ios-build:
+    name: iOS — App Store (kompilyatsiya testi)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      xcode: latest
+    scripts:
+      - name: XcodeGen o'rnatish + loyiha yaratish
+        script: |
+          brew install xcodegen
+          cd ios
+          xcodegen generate
+      - name: Xcode build (simulyator uchun — imzosiz)
+        script: |
+          cd ios
+          xcodebuild build \
+            -project MVoW.xcodeproj \
+            -scheme MVoW \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO | xcpretty || xcodebuild build \
+            -project MVoW.xcodeproj \
+            -scheme MVoW \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO
+    artifacts:
+      - /tmp/xcodebuild_logs/*.log
